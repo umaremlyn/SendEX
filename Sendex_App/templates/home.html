@@ -1,0 +1,411 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/css/landing.css' %}">
+    <link rel="stylesheet" href="{% static '/css/app.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+	<title>SendEX - Send Fron Anywhere</title>
+    <!-- <link rel="stylesheet" href="{% static 'Sendex_App/css/opskill-widgets.css' %}">
+    <link rel="stylesheet" href="{% static 'Sendex_App/css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Sendex_App/css/style.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Sendex_App/css/classic-themes.min.css' %}"> -->
+    <!-- Your additional stylesheets -->
+	<link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+    <!--Replace with your tailwind.css once created-->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
+    <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
+
+    <!-- Your custom inline styles -->
+    <style>
+    	body{
+    		background-color: #012d58;
+    	}
+		.hero {
+        background-color: #13007c; /* Add this line to style the Hero section background */
+    }
+      .gradient {
+        background: linear-gradient(90deg, #ffffff 0%, #fdfdfd 100%);
+      }
+	</style>
+  </head>
+	<body class=" home leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+<!-- Header Section -->
+<header>
+	<nav id="header" class="fixed bg-fixed w-full z-30 top-0 navbar navbar-expand-lg bg-blue-900">
+		<div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
+			<div class="logo bg-blue-900">
+				<a class="navbar-brand" href="/">
+					<img src="{% static 'img/logo.png' %}" alt="logo">
+				</a>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse flex-grow lg:flex lg:items-center mt-2 lg:mt-0 lg:bg-transparent text-light lg:p-0 z-20" id="nav-content">
+
+				<ul class="navbar-nav mr-auto list-reset lg:flex justify-end flex-1 items-center">
+					<li class="nav-item">
+						<a class="nav-link white-link" href="#">Services</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link white-link" href="#">How It Works</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link white-link" href="#">About Us</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link white-link" href="#">Contact Us</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		{% if user.is_authenticated %}
+				<ul class="navbar-nav white-link">
+				 <a href="/logout/" class="btn btn-success">Logout</a>
+				</ul>
+				{% else %}
+				 <ul class="navbar-nav white-link">
+				 <a href="/register/" class="btn btn-success">Get Started</a>
+				</ul>
+				{% endif %}
+	   </div>
+   </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+	<div class="container-fluid py-5">
+		<div class="container mb-5">
+			<div class="row mb-5">
+				
+				<div class="col-md-6 my-5 py-5 flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+					<h1 class="mt-5 text-5xl font-bold leading-tight">Unlock Your Potential with Expert Writing Services</h1>
+					<p class="leading-normal text-2xl mb-8">From Academic Excellence to Professional Success</p>
+					<a href="#services" class="btn btn-lg mt-5 btn-success mx-auto lg:mx-0 hover:underline text-gray-800 bg-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"> Explore Our Services   </a> 
+			</div>
+			<div class="col-md-6 my-5 w-full md:w-3/5 py-6 text-center">
+			<img class="img-fluid w-full md:w-4/5 z-50"  src="{% static 'img/main-bg.png' %}" alt="My image">
+			</div>
+		</div>
+		</div>
+		</div>
+		<div class="relative -mt-12 lg:-mt-24">
+			<svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+				<g transform="translate(-2.000000, 44.000000)" fill="#FFFFFF" fill-rule="nonzero">
+				  <path d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496" opacity="0.100000001"></path>
+				  <path
+					d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
+					opacity="0.100000001"
+				  ></path>
+				  <path d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z" id="Path-4" opacity="0.200000003"></path>
+				</g>
+				<g transform="translate(-4.000000, 76.000000)" fill="#FFFFFF" fill-rule="nonzero">
+				  <path
+					d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035 Z"
+				  ></path>
+				</g>
+			  </g>
+			</svg>
+		  </div>
+</section>
+
+<!-- About Us Section -->
+<section class="about-us bg-white border-b py-8">
+	<!-- who we are -->
+	<div class="container-fluid mb-5 my-5">
+		<div class="container my-5">
+			<div class="row container max-w-5xl mx-auto m-8">
+				<div class="col-md-9 mx-auto text-center mt-5">
+					<h1 class="text-lead my-4 w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">Who we are</h1>
+					<h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+						Welcome to HaminWriter, your partner in achieving academic and professional excellence.
+					</h3>
+				</div>
+				<div class="w-full mb-4">
+					<div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+				</div>
+        <div class="flex flex-wrap">
+          <div class="row-cols-0 w-5/6 sm:w-1/2 p-6 text-gray-600 text-justify mb-8">
+			We Provide High-Quality Writing Services for Academic and Professional Excellence.
+			We are a team of passionate writers and professionals dedicated to helping you excel in your academic and professional endeavors.
+			<p>Our mission is to provide top-quality writing services that empower you to achieve your goals and dreams.</p>
+			<p>With years of experience in various fields, our writers bring expertise and creativity to every project. Whether you need assistance with academic papers, business plans, or professional resumes, we are here to deliver tailored solutions that exceed your expectations.</p>
+			<p>At HaminWriter, we believe in the power of words to shape the future. We are committed to delivering exceptional content that not only meets your requirements but also inspires and influences others. Our commitment to excellence drives us to continuously improve and innovate, ensuring that you receive the best possible service.</p>
+
+			  <!-- <p class="text-gray-600 text-justify mb-8">
+				Our writing service is a custom writing service that makes college life and office work easier. 
+						We help students and professionals make their busy days hassle-free. 
+						With our service, any deadline is manageable and any paper is superb.
+					</p> -->
+				</div>
+						<div class="col-md-6 my-5 w-full md:w-3/5 py-6 text-center">
+			<img class="img-fluid w-full md:w-4/5 z-50"  src="{% static 'img/hero.png' %}" alt="My image">
+			</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Services Section -->
+<section class="services hero border-bottom">
+	<div class="container-fluid mb-5 my-5 container mx-auto flex flex-wrap pt-4 pb-12">
+		<div class="container my-5">
+			<div class="row">
+				<div class="col-md-9 mx-auto text-center mt-5 container flex flex-wrap pt-4 pb-12">
+					<h1 class="text-lead my-4 w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">Our Services</h1>
+					<div class="w-full mb-4">
+						<div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+					  </div>
+					<p>We offer all types of academic and professional papers. If you find it hard to balance 
+						studies with the rest of your life &#8211; our service is just for you. 
+						You would appreciate it too so don&#8217;t be shy to recommend us!</p>
+				</div>
+			</div>
+				  <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+					<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+
+					</div>
+				  </div>
+		  
+			<div class="row">
+				<div class="col-md-4 mx-auto w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+					<div class="card text-center flex-1 bg-white rounded-t rounded-b-none overflow-hidden">
+						<div class="card-body ">
+							<div class="w-full font-bold text-xl text-gray-800 px-6">
+								<h5 class="card-title"> Academic Writing </h5>
+							</div>
+							<p class="card-text text-gray-800 text-base px-6 mb-5">
+								We offer all types of academic papers. If you find it hard to balance 
+								studies with the rest of your life &#8211; our service is just for you.</p>
+						</div>
+					</div>
+				</div>
+				<br>
+						<div class="col-md-4 mx-auto w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+							<div class="card text-center">
+								<div class="card-body">
+								<div class="w-full font-bold text-xl text-gray-800 px-6">
+									<h5 class="card-title"> Business Plans </h5>
+								</div>
+							<p class="card-text text-gray-800 text-base px-6 mb-5">
+								We offer all types of academic papers. If you find it hard to balance
+								studies with the rest of your life &#8211; our service is just for you.
+							</p>
+								</div>
+							</div>
+						</div>
+				<br>
+		            <div class="col-md-4 mx-auto w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+					<div class="card text-center">
+						<div class="card-body">
+							<div class="w-full font-bold text-xl text-gray-800 px-6">
+								<h5 class="card-title">Professional Resume </h5>
+							</div>
+							<p class="card-text text-gray-800 text-base px-6 mb-5">
+								We offer all types of academic papers. If you find it hard to balance
+								studies with the rest of your life &#8211; our service is just for you.
+								                    </p>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+</section>
+
+<!-- Why Choose SmartWriter Section -->
+<section class="why-choose hero">
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-9 mx-auto text-center">
+                <h1 class="text-lead my-4 w-full text-5xl font-bold leading-tight text-center text-gray-800">Why Choose SmartWriter</h1>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <i class="fa fa-check-circle fa-3x mb-3"></i>
+						<h4>High-Quality Content</h4>
+						<p>Our team of expert writers ensures top-notch quality in every piece of writing.</p>
+					</div>
+                    <div class="col-md-4 mb-4">
+                        <i class="fa fa-graduation-cap fa-3x mb-3"></i>
+                        <h4>Expert Writers</h4>
+                        <p>Our team of experienced writers ensures top-quality content for your needs.</p>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <i class="fa fa-lock fa-3x mb-3"></i>
+                        <h4>Confidentiality</h4>
+                        <p>Your information is safe with us. We prioritize your privacy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="container hero mx-auto text-center py-6 mb-12">
+      <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
+        Ready to Get Started?
+      </h2>
+      <div class="w-full mb-4">
+        <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
+      </div>
+      <h6 class="my-4 text-2xl leading-tight">
+		Empower yourself with our expert writing services. Whether it's an academic assignment, business document, or creative project, we've got you covered.</h6>
+		<a href="/orders/templates/orders/place_order.html" class="btn btn-primary mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+			Place an Order
+		</a>
+    </section>
+
+<!-- Contact Us Section -->
+<section class="contact">
+    <!-- Contact Form and Information Here -->
+</section>
+
+<!-- Site footer -->
+<footer class="site-footer">
+		<div class="container">
+			<div class="row">
+			<div class="col-sm-12 col-md-6">
+				<h6>About</h6>
+				<p class="text-justify">We are a team of passionate writers and professionals dedicated to helping you excel in your academic and professional endeavors. Our mission is to provide top-quality writing services that empower you to achieve your goals and dreams.</p>
+				<p class="text-justify">With years of experience in various fields, our writers bring expertise and creativity to every project. Whether you need assistance with academic papers, business plans, or professional resumes, we are here to deliver tailored solutions that exceed your expectations.</p>
+			</div>
+
+			<div class="col-xs-6 col-md-3">
+				<h6>Quick Links</h6>
+				<ul class="footer-links">
+				<li><a href="http://smartwriter.leencotech.com/about/">About Us</a></li>
+				<li><a href="http://smartwriter.leencotech.com/contact/">Contact Us</a></li>
+				<li><a href="http://smartwriter.leencotech.com/privacy-policy/">Privacy Policy</a></li>
+				</ul>
+			</div>
+
+			<div class="col-xs-6 col-md-3">
+				<ul class="social-icons">
+					<li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+					<li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+					<li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+					</ul>	
+			</div>
+
+			</div>
+			<hr>
+		</div>
+		<div class="container">
+			<div class="row">
+			<div class="col-md-8 col-sm-6 col-xs-12 text-center">
+				<p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by 
+			<a href="leencotech.com">Leen-Co Tech Ltd</a>.
+				</p>
+			</div>
+
+			<!-- <div class="col-md-4 col-sm-6 col-xs-12">
+				<ul class="social-icons">
+				<li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+				<li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+				<li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+				<li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+				</ul>
+			</div> -->
+			</div>
+		</div>
+	</footer>
+	<!-- end -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></script>
+		<!-- jQuery if you need it
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  -->
+  <script>
+	var scrollpos = window.scrollY;
+	var header = document.getElementById("header");
+	var navcontent = document.getElementById("nav-content");
+	var navaction = document.getElementById("navAction");
+	var brandname = document.getElementById("brandname");
+	var toToggle = document.querySelectorAll(".toggleColour");
+
+	document.addEventListener("scroll", function () {
+	  /*Apply classes for slide in bar*/
+	  scrollpos = window.scrollY;
+
+	  if (scrollpos > 10) {
+		header.classList.add("bg-white");
+		navaction.classList.remove("bg-white");
+		navaction.classList.add("gradient");
+		navaction.classList.remove("text-gray-800");
+		navaction.classList.add("text-white");
+		//Use to switch toggleColour colours
+		for (var i = 0; i < toToggle.length; i++) {
+		  toToggle[i].classList.add("text-gray-800");
+		  toToggle[i].classList.remove("text-white");
+		}
+		header.classList.add("shadow");
+		navcontent.classList.remove("bg-gray-100");
+		navcontent.classList.add("bg-white");
+	  } else {
+		header.classList.remove("bg-white");
+		navaction.classList.remove("gradient");
+		navaction.classList.add("bg-white");
+		navaction.classList.remove("text-white");
+		navaction.classList.add("text-gray-800");
+		//Use to switch toggleColour colours
+		for (var i = 0; i < toToggle.length; i++) {
+		  toToggle[i].classList.add("text-white");
+		  toToggle[i].classList.remove("text-gray-800");
+		}
+
+		header.classList.remove("shadow");
+		navcontent.classList.remove("bg-white");
+		navcontent.classList.add("bg-gray-100");
+	  }
+	});
+  </script>
+  <script>
+	/*Toggle dropdown list*/
+	/*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
+
+	var navMenuDiv = document.getElementById("nav-content");
+	var navMenu = document.getElementById("nav-toggle");
+
+	document.onclick = check;
+	function check(e) {
+	  var target = (e && e.target) || (event && event.srcElement);
+
+	  //Nav Menu
+	  if (!checkParent(target, navMenuDiv)) {
+		// click NOT on the menu
+		if (checkParent(target, navMenu)) {
+		  // click on the link
+		  if (navMenuDiv.classList.contains("hidden")) {
+			navMenuDiv.classList.remove("hidden");
+		  } else {
+			navMenuDiv.classList.add("hidden");
+		  }
+		} else {
+		  // click both outside link and outside menu, hide menu
+		  navMenuDiv.classList.add("hidden");
+		}
+	  }
+	}
+	function checkParent(t, elm) {
+	  while (t.parentNode) {
+		if (t == elm) {
+		  return true;
+		}
+		t = t.parentNode;
+	  }
+	  return false;
+	}
+  </script>
+</body>
+</html>

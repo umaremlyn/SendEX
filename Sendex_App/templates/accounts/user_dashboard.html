@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2>Welcome, {{ user.username }}!</h2>
+    <h3>Your Orders</h3>
+    <ul>
+      {% for order in user_orders %}
+        <li>
+          Order ID: {{ order.id }}<br>
+          Service: {{ order.service_type }}<br>
+          Status: {{ order.status }}<br>
+          Deadline: {{ order.deadline }}<br>
+          <a href="{% url 'order_tracking' order.id %}">Track Order</a>
+        </li>
+        <hr>
+      {% empty %}
+        <p>You have no orders yet.</p>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
