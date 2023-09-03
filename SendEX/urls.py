@@ -13,6 +13,8 @@ urlpatterns = [
     path('dashboard/', include('Sendex_App.urls')),
     path('send-item/', include('Sendex_App.urls')),
     path('receive-item/', include('Sendex_App.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),  # Include auth URLs
+
 ]
 
 # urlpatterns = [

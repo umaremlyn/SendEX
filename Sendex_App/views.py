@@ -9,20 +9,42 @@ from django.contrib.auth.models import User
 #     return render(request, 'home.html')
 def home_view(request):
     return render(request, 'home.html')
-def register_view(request):
-    return render(request, 'registration.html')
+# def register_view(request):
+#     return render(request, 'registration.html')
 
-def login_view(request):
-    return render(request, 'login.html')
+# def login_view(request):
+#     return render(request, 'login.html')
 
-def dashboard_view(request):
-    return render(request, 'dashboard.html', {'user': request.user})
+# def dashboard_view(request):
+#     return render(request, 'dashboard.html', {'user': request.user})
 
-def send_item_view(request):
-    return render(request, 'send_item.html')
+# def send_item_view(request):
+#     return render(request, 'send_item.html')
 
-def receive_item_view(request):
-    return render(request, 'receive_item.html')
+# def receive_item_view(request):
+#     return render(request, 'receive_item.html')
+
+# sendex_app/views.py
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})
+
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('dashboard')  # Redirect to the user's dashboard
+    return render(request, 'registration/login.html')
 
 # def user_dashboard(request):
 #     return render(request, 'accounts/user_dashboard.html')
