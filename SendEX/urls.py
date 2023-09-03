@@ -8,8 +8,8 @@ from Sendex_App.views import home_view  # Import the view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name='home'),  # Add this line for the root URL
-    path('register/', include('Sendex_App.urls')),
-    path('login/', include('Sendex_App.urls')),
+    # path('register/', include('Sendex_App.urls')),
+    # path('login/', include('Sendex_App.urls')),
     path('dashboard/', include('Sendex_App.urls')),
     path('send-item/', include('Sendex_App.urls')),
     path('receive-item/', include('Sendex_App.urls')),
