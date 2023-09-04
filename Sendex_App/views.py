@@ -11,7 +11,7 @@ def home_view(request):
 
 @login_required
 def dashboard(request):
-    user_shipments = Shipment.objects.filter(user=request.user)
+    # user_shipments = Shipment.objects.filter(user=request.user)
     return render(request, 'dashboard/dashboard.html', {'user_shipments': user_shipments})
 
 @login_required
