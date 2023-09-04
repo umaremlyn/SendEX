@@ -2,6 +2,8 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 from django.db import models
 from django.utils import timezone
 
+from Sendex_App.views import user_login
+
 class CustomUserManagers(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email:
@@ -50,6 +52,23 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+        
+class Shipment(models.Model):
+    user = models.ForeignKey(user_login, on_delete=models.CASCADE)
+    tracking_id = models.CharField(max_length=10, unique=True)
+    sender_name = models.CharField(max_length=255)
+    receiver_name = models.CharField(max_length=255)
+    sender_phone = models.CharField(max_length=15)
+    receiver_phone = models.CharField(max_length=15)
+    sender_address = models.TextField()
+    receiver_address = models.TextField()
+    package_size = models.CharField(max_length=20, choices=[('Small', 'Small'), ('Medium', 'Medium'), ('Large', 'Large')])
+    
+    def save(self, *args, **kwargs):
+        # Generate a unique tracking ID before saving
+        # You can implement your own logic for this
+        # Example: self.tracking_id = generate_unique_tracking_id()
+        super().save(*args, **kwargs)
         
 # class Shipment(models.Model):
 #     sender_name = models.CharField(max_length=100)

@@ -28,4 +28,8 @@ urlpatterns = [
     # path('receive-item/', views.receive_item_view, name='receive_item'),
     path('register/', views.register, name='register'),
     path('login/', views.user_login, name='login'),
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('create_shipment/', views.create_shipment, name='create_shipment'),
+    path('track_shipment/', views.track_shipment, name='track_shipment'),
+    path('manage_account/', views.manage_account, name='manage_account'),
 ]

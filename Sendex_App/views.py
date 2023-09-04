@@ -1,30 +1,32 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
+from .forms import ShipmentForm  # Import the ShipmentForm from the same directory
+from .models import Shipment
 
-# def home(request):
-#     return render(request, 'home.html')
 def home_view(request):
     return render(request, 'home.html')
-# def register_view(request):
-#     return render(request, 'registration.html')
 
-# def login_view(request):
-#     return render(request, 'login.html')
+@login_required
+def dashboard(request):
+    user_shipments = Shipment.objects.filter(user=request.user)
+    return render(request, 'dashboard/dashboard.html', {'user_shipments': user_shipments})
 
-# def dashboard_view(request):
-#     return render(request, 'dashboard.html', {'user': request.user})
-
-# def send_item_view(request):
-#     return render(request, 'send_item.html')
-
-# def receive_item_view(request):
-#     return render(request, 'receive_item.html')
-
-# sendex_app/views.py
+@login_required
+def create_shipment(request):
+    if request.method == 'POST':
+        form = ShipmentForm(request.POST)
+        if form.is_valid():
+            shipment = form.save(commit=False)
+            shipment.user = request.user
+            shipment.save()
+            return redirect('dashboard')
+    else:
+        form = ShipmentForm()
+    
+    return render(request, 'dashboard/create_shipment.html', {'form': form})
 
 def register(request):
     if request.method == 'POST':
@@ -45,19 +47,3 @@ def user_login(request):
             login(request, user)
             return redirect('dashboard')  # Redirect to the user's dashboard
     return render(request, 'registration/login.html')
-
-# def user_dashboard(request):
-#     return render(request, 'accounts/user_dashboard.html')
-
-# def register(request):
-#     if request.method == 'POST':
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             username = form.cleaned_data.get('username')
-#             messages.success(request, f'Account created for {username}!')
-#             return redirect('login')
-#     else:
-#         form = UserCreationForm()
-#     return render(request, 'registration/register.html', {'form': form})
-
