@@ -1,8 +1,11 @@
+# Sendex_App/models.py
+
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth import get_user_model
 
-from Sendex_App.views import user_login
+User = get_user_model()  # Use the get_user_model function
 
 class CustomUserManagers(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -38,7 +41,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name']
 
-    # Specify related names to resolve the clash
     groups = models.ManyToManyField(
         'auth.Group',
         blank=True,
@@ -54,7 +56,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         return self.email
         
 class Shipment(models.Model):
-    user = models.ForeignKey(user_login, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     tracking_id = models.CharField(max_length=10, unique=True)
     sender_name = models.CharField(max_length=255)
     receiver_name = models.CharField(max_length=255)
@@ -65,24 +67,6 @@ class Shipment(models.Model):
     package_size = models.CharField(max_length=20, choices=[('Small', 'Small'), ('Medium', 'Medium'), ('Large', 'Large')])
     
     def save(self, *args, **kwargs):
-        # Generate a unique tracking ID before saving
-        # You can implement your own logic for this
-        # Example: self.tracking_id = generate_unique_tracking_id()
         super().save(*args, **kwargs)
-        
-# class Shipment(models.Model):
-#     sender_name = models.CharField(max_length=100)
-#     sender_phone = models.CharField(max_length=20)
-#     sender_address = models.TextField()
-#     receiver_name = models.CharField(max_length=100)
-#     receiver_phone = models.CharField(max_length=20)
-#     receiver_address = models.TextField()
-#     package_size = models.CharField(max_length=20, choices=[
-#         ('small', 'Small'),
-#         ('medium', 'Medium'),
-#         ('large', 'Large'),
-#     ])
-#     tracking_id = models.CharField(max_length=10, unique=True)
 
-#     def __str__(self):
-#         return self.tracking_id
+# Rest of your models.py remains the same

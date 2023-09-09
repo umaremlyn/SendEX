@@ -1,6 +1,7 @@
-# sendex_app/forms.py
+# Sendex_App/forms.py
+
 from django import forms
-from .models import Shipment
+from Sendex_App.models import Shipment
 
 class ShipmentForm(forms.ModelForm):
     class Meta:

@@ -31,5 +31,7 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('create_shipment/', views.create_shipment, name='create_shipment'),
     path('track_shipment/', views.track_shipment, name='track_shipment'),
-    path('manage_account/', views.manage_account, name='manage_account'),
+    # path('manage_account/', views.manage_account, name='manage_account'),
+    path('track_shipment/', views.create_shipment, name='track_shipment'),
+
 ]

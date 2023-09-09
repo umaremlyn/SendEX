@@ -1,17 +1,21 @@
+# Sendex_App/views.py
+
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
-from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import ShipmentForm  # Import the ShipmentForm from the same directory
-from .models import Shipment
+
+from Sendex_App.models import Shipment
+from .forms import ShipmentForm
+
+
 
 def home_view(request):
     return render(request, 'home.html')
 
 @login_required
 def dashboard(request):
-    # user_shipments = Shipment.objects.filter(user=request.user)
+    user_shipments = Shipment.objects.filter(user=request.user)
     return render(request, 'dashboard/dashboard.html', {'user_shipments': user_shipments})
 
 @login_required
@@ -27,6 +31,10 @@ def create_shipment(request):
         form = ShipmentForm()
     
     return render(request, 'dashboard/create_shipment.html', {'form': form})
+
+def track_shipment(request):
+    # Your view logic here
+    return render(request, 'track_shipment.html')
 
 def register(request):
     if request.method == 'POST':
